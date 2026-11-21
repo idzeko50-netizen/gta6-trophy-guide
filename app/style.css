@@ -1,0 +1,117 @@
+/* GTA 6 trophy guide — dark theme, gold/platinum accent, plain legible type. */
+:root {
+  --bg: #12100e;
+  --panel: #1d1a16;
+  --panel2: #26211b;
+  --ink: #f2ede4;
+  --muted: #b8ad9c;
+  --line: #3a332a;
+  --gold: #d9a441;
+  --gold-soft: #f0c96a;
+  --plat: #cfd8e3;
+  --silver: #c9ced6;
+  --bronze: #d08a4e;
+  --danger: #e0654f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 20px 18px 48px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--gold-soft); }
+.top { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-start; }
+h1 { margin: 0 0 6px; font-size: 34px; letter-spacing: .5px; color: var(--gold-soft); }
+.sub { margin: 0; max-width: 560px; color: var(--muted); font-size: 15px; }
+.progress { min-width: 300px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.progress .big { font-size: 26px; font-weight: 700; }
+.progress .of { font-size: 16px; color: var(--muted); font-weight: 400; }
+.bar { height: 10px; background: #0c0a08; border-radius: 6px; margin: 10px 0 8px; overflow: hidden; }
+.bar div { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-soft)); transition: width .2s; }
+.grades { font-size: 14px; color: var(--muted); }
+.plat { font-size: 14px; margin-top: 6px; color: var(--plat); }
+
+.tabs { display: flex; gap: 8px; margin: 22px 0 0; }
+.tab {
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px 8px 0 0; padding: 10px 18px; font-size: 16px; cursor: pointer;
+}
+.tab.active { background: var(--panel2); border-bottom-color: var(--gold); color: var(--gold-soft); font-weight: 700; }
+
+.controls {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  background: var(--panel2); border: 1px solid var(--line); border-radius: 0 10px 10px 10px;
+  padding: 12px 14px; margin-bottom: 14px;
+}
+.controls label { font-size: 14px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+.controls input[type="search"], .controls select {
+  background: #0c0a08; color: var(--ink); border: 1px solid var(--line);
+  border-radius: 6px; padding: 7px 9px; font-size: 15px;
+}
+.controls input[type="search"] { width: 230px; }
+.controls .spacer { flex: 1; }
+.controls button, .importBtn {
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 6px; padding: 7px 12px; font-size: 14px; cursor: pointer;
+}
+.controls button:hover, .importBtn:hover { border-color: var(--gold); }
+.check input { width: 17px; height: 17px; accent-color: var(--gold); }
+
+.warn {
+  background: #2b1d16; border: 1px solid #6b3a2a; border-left: 4px solid var(--danger);
+  border-radius: 8px; padding: 12px 14px; font-size: 15px; margin: 0 0 14px;
+}
+.count { color: var(--muted); font-size: 14px; margin: 4px 0 10px; }
+
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+}
+.card.earned { border-color: #5a6b3f; }
+.card.missable { border-left: 4px solid var(--danger); }
+.card .row { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.card input[type="checkbox"] { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--gold); flex: none; }
+.card .main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.card .name { font-size: 18px; font-weight: 700; }
+.card.earned .name { text-decoration: line-through; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge {
+  font-size: 12px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
+  border-radius: 20px; padding: 2px 9px; background: #0c0a08; border: 1px solid var(--line); color: var(--muted);
+}
+.badge.grade-platinum { color: #1a1a1a; background: var(--plat); border-color: var(--plat); }
+.badge.grade-gold { color: #1a1a1a; background: var(--gold-soft); border-color: var(--gold-soft); }
+.badge.grade-silver { color: #1a1a1a; background: var(--silver); border-color: var(--silver); }
+.badge.grade-bronze { color: #1a1a1a; background: var(--bronze); border-color: var(--bronze); }
+.badge.miss { color: #fff; background: var(--danger); border-color: var(--danger); }
+.badge.hid { color: var(--gold-soft); border-color: var(--gold); }
+.desc { color: var(--muted); font-size: 15px; }
+.guideBtn {
+  margin: 10px 0 0 32px; background: none; border: 1px solid var(--gold); color: var(--gold-soft);
+  border-radius: 6px; padding: 6px 12px; font-size: 14px; cursor: pointer;
+}
+.guide {
+  margin: 10px 0 2px 32px; padding: 10px 12px; background: #0c0a08;
+  border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 8px;
+}
+.guide p { margin: 0 0 7px; font-size: 15px; line-height: 1.5; }
+.guide p:last-child { margin-bottom: 0; }
+.sources { font-size: 13.5px; color: var(--muted); }
+
+.roadIntro, .roadNote { color: var(--muted); font-size: 15px; }
+.road { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.stage { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 10px; padding: 14px 16px; }
+.stage h3 { margin: 0 0 6px; font-size: 19px; color: var(--gold-soft); }
+.stageCount { float: right; font-size: 14px; color: var(--muted); font-weight: 400; }
+.stage p { margin: 0 0 8px; }
+.stage p:last-child { margin-bottom: 0; }
+.stageTrophies { font-size: 14px; color: var(--muted); }
+footer { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 14px; color: var(--muted); font-size: 13.5px; }
+@media (max-width: 640px) {
+  h1 { font-size: 26px; }
+  .controls input[type="search"] { width: 100%; }
+  .guide, .guideBtn { margin-left: 0; }
+}
